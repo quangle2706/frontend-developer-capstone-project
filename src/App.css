@@ -1,18 +1,27 @@
 * {
-  background-color: bisque;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 body {
   font-family: sans-serif;
   min-height: 100vh;
-  margin-left: 5%;
-  margin-right: 5%;
+  padding-left: 12.5%;
+  padding-right: 12.5%;
+  background-color: bisque;
+}
+
+header {
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center; /* center items vertically */
+  justify-content: space-between; /* make items space between with full width */
 }
 
 .nav {
   list-style: none;
   text-align: right;
   padding-inline-start: 0rem;
+  /* display: flex; */
 }
 
 .nav .nav-item {
@@ -25,13 +34,7 @@ body {
 
 .nav .nav-item:hover {
   transition: 0.5s;
-  color: red;
-}
-
-header {
-  font-size: 0.8rem;
-  background-color: deepskyblue;
-  padding: 0.5rem;
+  color: #495E57;
 }
 
 main {
@@ -39,18 +42,184 @@ main {
   padding: 0.5rem;
 }
 
+.hero-section {
+  display: flex;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 40px;
+}
+
+.hero-section .content {
+  flex: 1;
+}
+
+.hero-section .content button {
+  margin-top: 20px;
+  background-color: #000000;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+}
+
+.hero-section .content button:hover {
+  background-color: #F4CE14;
+  transition: 0.2s;
+}
+
+.hero-section .content button a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero-section .image {
+  flex: 1;
+  margin: 0 0 0 45px;
+  position: relative;
+}
+
+.hero-section .image img {
+  position: absolute;
+  top: 60px;
+}
+
+.image img {
+  width: 100%; /* make sure it does not exceed space when it's too large */
+}
+
+.special-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.special-lists {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.special-card img {
+  width: 100%;
+}
+
+.special-card .dish {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.testimonial-section h1 {
+  text-align: center;
+}
+
+.testimonial-section .customer-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.customer-card {
+  background-color: rgba(255, 0, 0, 0.5);
+  padding: 25px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.customer-card .customer-info {
+  display: flex;
+  align-items: center;
+}
+
+.customer-info img {
+  width: 100px;
+}
+
+.customer-info .customer-name {
+  margin-left: 15px;
+}
+
+.about-section {
+  display: flex;
+}
+
+.about-section .about-info {
+  flex: 1
+}
+
+.about-section .about-images {
+  flex: 1
+}
+
+.about-images {
+  position: relative;
+  margin: 30px;
+}
+
+.about-images img {
+  width: 100%;
+  position: absolute;
+}
+
+.about-images .about-img-1 {
+  top: 0;
+  right: 0;
+  width: 70%;
+}
+
+.about-images .about-img-2 {
+  top: 50px;
+  left: 0;
+  width: 70%;
+}
+
+
 footer {
   background-color: orange;
   padding: 0.5rem;
+  margin-top: 50px;
+}
+
+.footer-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+}
+
+.footer-section .footer-image {
+  width: 100%;
+}
+
+.footer-section span {
+  display: block;
+}
+
+.footer-section .footer-nav {
+
+}
+
+.footer-section .footer-contact {
+
+}
+
+.footer-section .footer-social-links {
+
+}
+
+@media screen and (max-width: 480px) {
+
+  .hero-section {
+    display: block;
+  }
 }
 
 /* Headings */
 h1 {
-
+  font-size: 3rem;
 }
 
 h2 {
-
+  font-size: 2rem;
 }
 
 h3 {

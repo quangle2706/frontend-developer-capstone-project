@@ -1,4 +1,5 @@
-import { useState, useEffect, useReducer } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function BookingForm(props) {
 
@@ -9,7 +10,7 @@ function BookingForm(props) {
 
     const handleDateChange = (e) => {
         setSelectedDate(e.target.value);
-        props.updateTimes(); // loading new available times
+        props.updateTimes(selectedDate); // loading new available times
     }
 
     const handleTimeChange = (e) => {
@@ -24,13 +25,17 @@ function BookingForm(props) {
         setOccasion(e.target.value);
     }
 
+    const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        // props.submitForm(formData)
         console.log('Form submitted!');
         console.log(selectedDate);
         console.log(reservationTime);
         console.log(numberOfGuests);
         console.log(occasion);
+        navigate("/booking-confirmation");
     }
 
     // Every time new selected date is chosen
@@ -41,16 +46,16 @@ function BookingForm(props) {
     return (
         <>
             <form style={{ display: "grid", maxWidth: "200px", gap: "20px"}} onSubmit={handleSubmit}>
-                <label htmlFor="res-date">Choose date</label>
-                <input type="date" id="res-date" value={selectedDate} onChange={handleDateChange} />
-                <label htmlFor="res-time">Choose time</label>
-                <select id="res-time " value={reservationTime} onChange={handleTimeChange}>
+                <label aria-label="res-date" htmlFor="res-date">Choose date</label>
+                <input type="date" id="res-date" value={selectedDate} onChange={handleDateChange} required />
+                <label aria-label="res-time" htmlFor="res-time">Choose time</label>
+                <select id="res-time " value={reservationTime} onChange={handleTimeChange} required>
                     {props.availableTimes.map((time, index) => (<option key={index}>{time}</option>))}
                 </select>
-                <label htmlFor="guests">Number of guests</label>
-                <input type="number" placeholder="1" min="1" max="10" id="guests" value={numberOfGuests} onChange={handleNumberOfGuestChange}/>
-                <label htmlFor="occasion">Occasion</label>
-                <select id="occasion" value={occasion} onChange={handleOccasionChange}>
+                <label aria-label="guests" htmlFor="guests">Number of guests</label>
+                <input type="number" placeholder="1" min="1" max="10" id="guests" required value={numberOfGuests} onChange={handleNumberOfGuestChange}/>
+                <label aria-label="occasion" htmlFor="occasion">Occasion</label>
+                <select id="occasion" value={occasion} onChange={handleOccasionChange} required>
                     <option>Birthday</option>
                     <option>Anniversary</option>
                 </select>
